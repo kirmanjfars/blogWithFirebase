@@ -4,14 +4,16 @@
             "id": 1,
             "title": "lorem",
             "body": "lorem ipsum",
-            "userId": 1
+            "userId": 1,
+            "categoryId": 1
         }
     ],
     "comments": [
         {
             "id": 1,
             "body": "some comment",
-            "postId": 1
+            "postId": 1,
+            "userId": 1
         }
     ],
     "users": [
