@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Comments</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html">
+            <h2>RE:CODED BLOG</h2>
+        </a>
+        <nav>
+            <a href="users.html">Users</a>
+            <a href="comments.html " style=" color: #FFFFFF;
+            background-image: linear-gradient(to top, #a9aeafbe,#656b6e );">Comments</a>
+            <a href="posts.html">Posts</a>
+            <a href="categories.html">Category</a>
+        </nav>
+    </header>
+
+    <form id="create-form">
+        <h2>New Comment</h2>
+        <div>
+            <div class="form1">
+                <label>Post ID:</label>
+                <input required placeholder="Enter here" id="create-postId"> </div>
+            <div class="form1">
+                <label>User ID:</label>
+                <input required placeholder="Enter here" id="create-userId"> </div>
+            <br>
+            <div class="form1">
+                <label>Comment:</label>
+                <input required placeholder="Enter here" type="text" id="create-com">
+            </div>
+            <button class="sub" onclick="create()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </form>
+
+    <div class="box-table">
+        <table class="tab">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Comments</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="comments.js"></script>
+</body>
+
+</html>

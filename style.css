@@ -1,0 +1,183 @@
+*{
+    box-sizing: border-box; 
+    margin: 0%; 
+    padding: 0%;
+}
+
+body{
+  background-color: #4b5052;
+}
+
+#get-button{
+   visibility: hidden;
+}
+
+header{
+  display: flex; 
+  flex-direction: row;
+  background-color: #e1e3e4f3 ;
+  width: 100%;
+}
+
+header a {
+  text-decoration: none;
+  padding: 10px 50px;
+  color: black;
+}
+
+
+nav {
+  width: 75%;
+  right: 0%;
+  position: relative;
+  padding: 7px 15px;
+  text-align: right;
+ 
+}
+
+.post{
+
+  width: 60%; 
+  background-image: linear-gradient(to top, #a9aeafbe,#656b6e );
+  border: 1px solid black; 
+  border-radius: 3px;
+
+  padding: 10px 15px;
+  margin: 5px auto;
+
+}
+
+.post h3, h4{
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.post p{
+  margin-bottom: 15px;
+  word-spacing: 5px;
+  color: white;
+}
+
+.post .title{
+  font-style: italic;
+}
+.post h3{
+   font-weight: bold; 
+   letter-spacing: 3px;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+}
+
+.comment{
+  background-color: #959797f3 ;
+  padding: 10px 3px 0px 5px;
+  border: 1px solid #6b6d6df3;
+  border-radius: 3px;
+}
+
+.comment p{
+  word-spacing: 2px;
+  color: white;
+}
+
+
+nav a, #get-button, #new-button {
+  display: inline-block;
+  border:none;
+  color: #FFFFFF;
+  font-family: 'Times New Roman', Times, serif;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  padding: 5px 20px;
+  margin: 5px 10px;
+  background-image: linear-gradient(to top,#656b6e, #a9aeafbe );
+  background-color: #BDC2BC;
+  text-decoration: none;
+ }
+
+ nav a:hover, #get-button:hover {
+  border: none;
+  color: #FFFFFF;
+  background-image: linear-gradient(to top, #a9aeafbe,#656b6e );
+  background-color: #DBDBDB;
+}
+
+#get-button, #new-button{
+  margin: 0px 0px  20px 40%;
+  font-size: 22px;
+
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding:  10px 0px;
+    text-align: center;
+    background-image: linear-gradient(to top,#656b6e, #a9aeafbe );
+    margin: 0% auto;
+    color: white;
+    border: 1px solid  white;
+}
+
+form h2{
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+   
+    color: white;
+}
+
+.form1{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+form input{
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+    background-color: rgba(252, 253, 253, 0.404);
+    padding: 5px 10px;
+}
+
+form label{
+    margin-top: 0%; 
+}
+
+textarea{
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+    background-color: rgba(252, 253, 253, 0.404);
+    padding: 5px 10px;
+}
+
+form button{
+  width: 70px;
+  background-color: #656b6e;
+  color: white;
+  font-size: 18px; 
+  border: 2px solid white;
+  padding-bottom: 5px; 
+  padding-top: 5px;
+  text-align: center;
+  margin: 0% auto;
+}
+
+form button:hover{
+  border: 2px solid rgb(12, 235, 12);
+  color: rgb(12, 235, 12);
+}
+
+#com{
+  margin-top: 25px;
+}
+
+#comN{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <title>POST</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <header >
+        <a href="../index.html"> <h2>RE:CODED BLOG</h2> </a>
+        <nav>
+            <a href="users.html">Users</a>
+            <a href="comments.html">Comments</a>
+            <a href="posts.html" style=" color: #FFFFFF;
+            background-image: linear-gradient(to top, #a9aeafbe,#656b6e );">Posts</a>
+            <a href="categories.html">Category</a>
+        </nav>
+    </header>
+
+    <button id="get-button">READ/GET Products</button>
+    <form id="create-form">
+        <h2>New Post</h2>
+        <div>
+        <div class="form1">
+        <label>Title:</label>
+        <input required placeholder="Enter here"  id="create-title"> </div>
+        <div class="form1">
+        <label>Catagory ID:</label>
+        <input required placeholder="Enter here"  id="create-catg"> </div>
+        <label>User ID:</label>
+        <input required placeholder="Enter here"  id="create-user"> </div>
+        <div class="form1">
+        <textarea rows="7" cols="80" placeholder="Describe yourself here..."  id="create-post"></textarea></div>
+        <button  class="sub" onclick="create()" ><i class="fas fa-plus"></i>  </button>
+        <button class="subb" onclick="update()" ><i class="fas fa-check"></i>  </button>
+
+        </div>
+    </form>
+ 
+    <div class="box-table">
+    <table class="tab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="post.js"></script>
+</body>
+
+</html>
