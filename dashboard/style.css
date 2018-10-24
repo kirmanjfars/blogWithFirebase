@@ -15,8 +15,17 @@ header{
     width: 100%;
 }
 
+.mt{
+  margin-top: 10px;
+}
+
+.sub{
+  margin: 0% auto;
+}
 .subb{
-  display: none
+  display: none;
+  margin: 0% auto;
+
 }
 
 header a {

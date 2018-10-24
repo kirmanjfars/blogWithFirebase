@@ -25,7 +25,12 @@ header a {
   color: black;
 }
 
-
+a button{
+  background-image: linear-gradient(to top,#656b6e, #a9aeafbe );
+  color: white;
+  border: none;
+  background-color: none;
+}
 nav {
   width: 75%;
   right: 0%;
@@ -180,4 +185,38 @@ form button:hover{
 #comN{
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+
+.myApp{
+  display: none;
+}
+
+
+.logForm{
+  margin-top: 10%;
+  padding: 5%;
+}
+
+.logForm input{
+  margin-bottom: 20px;
+}
+
+.btns{
+  display: flex;
+  flex-direction: row;
+}
+
+.btns button{
+  width: 100px;
+  padding: 5px;
+}
+
+.logOut{
+  visibility: hidden;
+}
+
+.si{
+  display: none;
+  flex-direction: column;
 }

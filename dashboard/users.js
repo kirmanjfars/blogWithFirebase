@@ -1,119 +1,101 @@
 let flag = true;
+var config = {
+    apiKey: "AIzaSyAX3sDpO_OkcPsquVPQjGpypj1212CTxJw",
+    authDomain: "blogfirebase-6fe7f.firebaseapp.com",
+    databaseURL: "https://blogfirebase-6fe7f.firebaseio.com",
+    projectId: "blogfirebase-6fe7f",
+    storageBucket: "blogfirebase-6fe7f.appspot.com",
+    messagingSenderId: "1036854052247"
+  };
+  firebase.initializeApp(config);
+  const databaseConnect = firebase.firestore();
+  databaseConnect.settings({timestampsInSnapshots: true});
 
-function getCategories() {
-
-    axios.get('http://localhost:3000/users')
-        .then(function (res) {
-            res = res.data;
-            disp(res);
-        });
+function getUsers() {
+      databaseConnect.collection("users")
+       .onSnapshot(snap => {
+           disp(snap.docs)
+       })
 }
 
-let userId = 2;
 
 function create() {
 
     if (flag === true) {
 
-        userId++;
-        let nname = $('#create-user');
-        let nemail = $('#create-email');
+       
+        let usernameT = $('#create-user').val();
+        let emailT = $('#create-email').val();
         flag =false;
-        axios.post('http://localhost:3000/users', {
-                name: nname.val(), 
-                email: nemail.val()
-            })
-            .then(function (res) {
-                getCategories();
-            })
-        event.preventDefault();
-        create();
-    }
-
+           databaseConnect.collection("users")
+            .add({
+                email:emailT,
+                username:usernameT
+            });
+             $('#create-user').val("");
+             $('#create-email').val("");
+}
 }
 
 
 function disp(el) {
-
     var bodyTab = $('tbody');
-
     bodyTab.html('');
-    el.forEach(el => {
-        bodyTab.append(`<tr>\
-        <td class="id">` + el.id + `</td>\
-        <td >` + el.name + `</td>\
-        <td >` + el.email + `</td>\
-        <td>\
-        <button class="btUp" onclick="update()" ><i class="far fa-edit"></i></button>\
-        <button class="btDel" onclick="del()"><i class="fas fa-trash-alt"></i></button>\
-        </td>\
-    </tr>\``);
+    el.forEach((t,i) => {
+        let el = {...t.data(),id:t.id}
+        let tr = $("<tr>");
+         tr.append([
+             $("<td>").html(i+1),
+             $("<td>").html(el.username),
+             $("<td>").html(el.email)
+         ]);
+         tr.append(
+             $("<td>").append([
+                 $("<button>").addClass("fa fa-edit btUp").on("click",() => {
+                     update(el.id, el.username, el.email)
+                 }),
+                 $("<button>").addClass("fas fa-trash-alt").on("click",() => {
+                    del(el.id);
+                 })
+             ])
+         )
+        bodyTab.append(tr);
     });
 }
 
-function update() {
-    let id; 
+function update(id,name, email) {
     flag = false;
+    
     $(".tab tbody").on('click', '.btUp', function () {
-        var cRow = $(this).closest('tr');
-        id = cRow.find("td:eq(0)").text();
-        var name = cRow.find("td:eq(1)").text();
-         
-        var username = cRow.find("td:eq(2)").text();
-        
-
         $('#create-user').val(name);
-        $('#create-email').val(username);
-
+        $('#create-email').val(email);
         $(".sub").html('<i class="fas fa-check"></i>').css("border", "1px solid rgb(233, 233, 21)").css("color", "rgb(233, 233, 21)");
-      
-
         $(".sub").mouseover(function() {
             $(this).css("border", "1px solid rgb(12, 235, 12)").css("color", "rgb(12, 235, 12)")
-          });
-
-          $(".sub").mouseout(function() {
+        });
+        $(".sub").mouseout(function() {
             $(this).css("border", "1px solid rgb(233, 233, 21)").css("color", "rgb(233, 233, 21)")
-          });
-
-        
+        });
     })
-    $('.sub').on('click', function(){
-        let user = $('#create-user');
-        let uemail = $('#create-email');
+
+    $('.sub').on('click', function(e){
+        e.preventDefault();
+        let username = $('#create-user').val();
+        let email = $('#create-email').val();
         if(flag===false){
-        $.ajax({
-            url: 'http://localhost:3000/users/'+id,
-            method: 'PUT',
-            data: 
-                {name: user.val(), 
-                email: uemail.val()}
-            ,success: function (res) { 
-                flag = true;
-             }
-        });}
-
-        create()
-        update()
+            databaseConnect.collection("users").doc(id).update({email,username}).then(res =>{
+             $('#create-user').val("");
+             $('#create-email').val("");
+            })
+        }
+        $(".sub").html('<i class="fas fa-plus"></i>')
+       
     })
 }
 
-function del(){
-
-    var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
-
-
-        $(".tab tbody").on('click', '.btDel', function () {
-            var cRow = $(this).closest('tr');
-            var id = cRow.find("td:eq(0)").text();
-            
-             
-        axios.delete('http://localhost:3000/users/'+ id)
-        .then(function (res) {
-            getCategories();
-        })
-  })
+function del(id){
+      databaseConnect.collection("users")
+       .doc(id).delete();
 }
 
-getCategories();
+getUsers();
